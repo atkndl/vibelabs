@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeLabs — The AI App Studio | Vibecoding the Future</title>
+  <meta name="description" content="VibeLabs is an AI-first product studio turning bleeding-edge foundation models into chart-topping consumer and pro apps through vibecoding.">
+  <meta name="theme-color" content="#07080c">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VibeLabs — The AI App Studio">
+  <meta property="og:description" content="From prompt to top charts. Building category-defining AI apps at 10x velocity.">
+  <meta property="og:image" content="assets/logo.svg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Ambient Interactive Canvas & Glow Orbs -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="noise-overlay"></div>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="glow-orb glow-orb-3"></div>
+
+  <!-- Floating Nav Pill -->
+  <header class="site-header">
+    <nav class="nav-pill">
+      <a href="#" class="brand">
+        <img src="assets/logo.svg" alt="VibeLabs Logo" class="brand-logo">
+        Vibe<span>Labs</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#products">Apps</a></li>
+        <li><a href="#engine">The Engine</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#careers">Careers</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm open-modal-btn">Pitch an Idea</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="badge">
+          <span class="pulse-dot"></span>
+          Next-Gen AI App Studio
+        </div>
+
+        <h1>
+          We Don't Just Write Code.<br>
+          We <span class="gradient-text">Vibe, Iterate & Scale</span> AI Apps.
+        </h1>
+
+        <p>
+          VibeLabs is an AI-native product studio building bleeding-edge mobile and web applications.
+          Driven by autonomous agents and vibecoding workflows, we ship category-defining experiences at breakneck speed.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-primary">Explore Products</a>
+          <a href="#engine" class="btn btn-glass">How We Build ↓</a>
+        </div>
+
+        <!-- Studio Metric Strip -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">
+              <span class="counter-val" data-target="4" data-suffix="">4</span>
+            </div>
+            <div class="stat-label">Live Flagship Apps</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">
+              <span class="counter-val" data-target="18.5" data-suffix="M+">18.5M+</span>
+            </div>
+            <div class="stat-label">AI Generations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">
+              <span class="counter-val" data-target="4.9" data-suffix="★">4.9★</span>
+            </div>
+            <div class="stat-label">Average App Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">
+              <span class="counter-val" data-target="48" data-suffix="h">&lt;48h</span>
+            </div>
+            <div class="stat-label">Idea to TestFlight</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Vibecoding Terminal Simulator -->
+    <section class="terminal-section">
+      <div class="container">
+        <div class="terminal-wrapper">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">
+              <span>●</span> vibelabs-autonomous-engine v3.8 — interactive simulation
+            </div>
+            <div class="mono" style="font-size: 0.75rem; color: var(--accent-cyan);">[LATENCY: 14ms]</div>
+          </div>
+
+          <div class="terminal-body">
+            <!-- Left Console -->
+            <div class="terminal-console">
+              <div class="terminal-prompt-box">
+                <span class="prompt-label">Select a Vibecoding Blueprint or Test Real-time Synthesis:</span>
+                <div class="prompt-chips">
+                  <button type="button" class="chip-btn active" data-preset="video">⚡ Video Lip-Sync</button>
+                  <button type="button" class="chip-btn" data-preset="copilot">🤖 Autonomous Copilot</button>
+                  <button type="button" class="chip-btn" data-preset="voice">🎙️ Real-time Voice</button>
+                  <button type="button" class="chip-btn" data-preset="camera">📸 Neural Camera</button>
+                </div>
+
+                <div class="terminal-input-row">
+                  <input type="text" id="terminal-input" class="terminal-input" readonly>
+                  <button type="button" id="run-prompt-btn" class="btn btn-primary btn-sm">Synthesize</button>
+                </div>
+              </div>
+
+              <div id="terminal-logs" class="terminal-logs">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+
+            <!-- Right Preview Pane -->
+            <div class="terminal-preview-pane">
+              <span class="preview-badge">READY TO SHIP</span>
+              <div id="preview-icon" class="preview-app-icon" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                🎬
+              </div>
+              <h3 id="preview-title" class="preview-app-title">VibeMotion Studio</h3>
+              <div id="preview-tag" class="preview-app-tag">Creative Tools • Generative AI</div>
+              <div class="preview-app-metrics">
+                <div><strong id="preview-downloads">4.2M+</strong> Downloads</div>
+                <div><strong id="preview-rating">4.9★</strong> Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flagship Products Portfolio (Codeway / HubX Style) -->
+    <section id="products" class="section-padding">
+      <div class="container">
+        <div class="section-head">
+          <div class="badge">App Ecosystem</div>
+          <h2>Designed for Impact. Powered by Latent Space.</h2>
+          <p>Explore our growing lineup of consumer and prosumer applications dominating charts worldwide.</p>
+        </div>
+
+        <div class="portfolio-container">
+          <!-- App List Cards -->
+          <div class="app-list">
+            <div class="app-card active" data-app="vibemotion">
+              <div class="app-card-header">
+                <div class="app-icon" style="color: #ec4899;">🎬</div>
+                <div class="app-meta">
+                  <h3>VibeMotion AI</h3>
+                  <span class="app-category">CREATIVE &amp; VIDEO • 4.9★</span>
+                </div>
+              </div>
+              <p class="app-desc">Generative video &amp; neural lip-sync engine turning static images and scripts into cinematic broadcast motion.</p>
+              <div class="app-tags">
+                <span>🔥 5M+ Downloads</span>
+                <span>🌍 Top 5 in 40+ Countries</span>
+              </div>
+            </div>
+
+            <div class="app-card" data-app="promptpilot">
+              <div class="app-card-header">
+                <div class="app-icon" style="color: #00f5a0;">⚡</div>
+                <div class="app-meta">
+                  <h3>PromptPilot Pro</h3>
+                  <span class="app-category">PRODUCTIVITY • 4.8★</span>
+                </div>
+              </div>
+              <p class="app-desc">Autonomous workspace copilot handling multi-turn creative workflows, code generation, and market research.</p>
+              <div class="app-tags">
+                <span>⚡ 6.8M+ Downloads</span>
+                <span>🏆 #1 Productivity in 32 Countries</span>
+              </div>
+            </div>
+
+            <div class="app-card" data-app="echoverse">
+              <div class="app-card-header">
+                <div class="app-icon" style="color: #f59e0b;">🎙️</div>
+                <div class="app-meta">
+                  <h3>EchoVerse AI</h3>
+                  <span class="app-category">AUDIO &amp; SPEECH • 4.9★</span>
+                </div>
+              </div>
+              <p class="app-desc">Ultra low-latency real-time voice synthesis and emotion-aware AI personas for next-gen interactive storytelling.</p>
+              <div class="app-tags">
+                <span>⭐ Apple App of the Day</span>
+                <span>🎧 3.1M+ Active Users</span>
+              </div>
+            </div>
+
+            <div class="app-card" data-app="auracam">
+              <div class="app-card-header">
+                <div class="app-icon" style="color: #06b6d4;">📸</div>
+                <div class="app-meta">
+                  <h3>AuraCam Vision</h3>
+                  <span class="app-category">PHOTO &amp; LIFESTYLE • 4.8★</span>
+                </div>
+              </div>
+              <p class="app-desc">Aesthetic neural camera with real-time promptable grading, cinematic 35mm grain synthesis, and viral TikTok presets.</p>
+              <div class="app-tags">
+                <span>✨ 5.4M+ Downloads</span>
+                <span>🚀 240M+ Social Views</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Smartphone Interactive Mockup -->
+          <div class="mockup-wrapper">
+            <div class="phone-mockup">
+              <div class="phone-notch">
+                <div class="notch-camera"></div>
+              </div>
+
+              <div id="phone-screen" class="phone-screen" style="background: linear-gradient(180deg, rgba(236, 72, 153, 0.25) 0%, #080a11 100%);">
+                <div class="screen-app-content">
+                  <div>
+                    <div class="screen-top">
+                      <span id="screen-category" class="mono">CREATIVE AI</span>
+                      <span>9:41 AM</span>
+                    </div>
+
+                    <h2 id="screen-title" style="font-size: 1.5rem; margin-bottom: 8px;">VibeMotion AI</h2>
+                    <p id="screen-desc" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;">
+                      Generative video &amp; neural lip-sync engine with broadcast quality.
+                    </p>
+
+                    <div class="screen-ui-card">
+                      <div style="font-size: 0.75rem; color: var(--accent-cyan); margin-bottom: 4px;">NEURAL MODEL</div>
+                      <h4 id="screen-feat-1">Emotion-Matched Motion</h4>
+                      <div class="screen-ui-slider">
+                        <div class="screen-ui-slider-fill"></div>
+                      </div>
+                      <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+                        <span>Inference Latency</span>
+                        <span style="color: var(--accent-cyan);">112ms</span>
+                      </div>
+                    </div>
+
+                    <div class="screen-ui-card">
+                      <div style="font-size: 0.75rem; color: var(--accent-purple); margin-bottom: 4px;">EXPORT ENGINE</div>
+                      <h4 id="screen-feat-2">1440p 60fps Native Export</h4>
+                      <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 6px;">
+                        Hardware-accelerated Apple Neural Engine pipeline.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="screen-action-btn" class="screen-action-btn">
+                    Synthesize Next Clip ⚡
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio Engine Methodology (Bento Grid) -->
+    <section id="engine" class="section-padding">
+      <div class="container">
+        <div class="section-head">
+          <div class="badge">The Vibecoding Stack</div>
+          <h2>How We Build at 10x Human Velocity</h2>
+          <p>Traditional app development takes quarters. We build, validate, and scale native apps in hours.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Bento 1 -->
+          <div class="bento-card col-span-2">
+            <div class="bento-icon-wrapper">🧠</div>
+            <h3>Autonomous Prompt-to-App Pipeline</h3>
+            <p>
+              We orchestrate specialized multi-agent developer swarms that translate user vibes and market voids into production-grade SwiftUI and Flutter apps. From UI architecture to App Store metadata, the loop is completely automated.
+            </p>
+            <span class="bento-tag">&gt; 0 to production in under 48 hours</span>
+          </div>
+
+          <!-- Bento 2 -->
+          <div class="bento-card">
+            <div class="bento-icon-wrapper">📈</div>
+            <h3>Algorithmic Growth Engine</h3>
+            <p>
+              Built-in viral mechanics, synthetic A/B paywall optimizers, and automated organic TikTok &amp; Reels distribution engines baked into day zero.
+            </p>
+            <span class="bento-tag">&gt; 35%+ average trial conversion</span>
+          </div>
+
+          <!-- Bento 3 -->
+          <div class="bento-card">
+            <div class="bento-icon-wrapper">⚡</div>
+            <h3>Hybrid Edge-Cloud Inference</h3>
+            <p>
+              Sub-100ms latency with on-device quantizations running directly on Apple Silicon &amp; Snapdragon NPU, backed by globally distributed GPU clusters.
+            </p>
+            <span class="bento-tag">&gt; Zero server bills for edge compute</span>
+          </div>
+
+          <!-- Bento 4 -->
+          <div class="bento-card col-span-2">
+            <div class="bento-icon-wrapper">🎯</div>
+            <h3>Zero Bureaucracy, Pure High Agency</h3>
+            <p>
+              No bloated sprints, no endless design meetings. An elite squad of vibecoders working with AI leverage that matches 100-person legacy mobile studios.
+            </p>
+            <span class="bento-tag">&gt; 100% focused on product obsession</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifesto Quote Box -->
+    <section id="impact" class="manifesto-section">
+      <div class="container">
+        <div class="manifesto-box">
+          <p class="manifesto-quote">
+            "The barrier between imagination and executable software has vanished.
+            In the vibecoding era, the studio that iterates the fastest and understands cultural currents wins the market."
+          </p>
+          <div class="manifesto-author">— VIBELABS MANIFESTO / 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Careers / Join Us Section (Codeway / HubX Style) -->
+    <section id="careers" class="section-padding">
+      <div class="container">
+        <div class="section-head">
+          <div class="badge">Join The Studio</div>
+          <h2>Built for the 10x Vibecoders</h2>
+          <p>We are always on the hunt for high-agency builders, cracked prompt engineers, and viral growth hackers.</p>
+        </div>
+
+        <div class="careers-grid">
+          <div class="career-card">
+            <div>
+              <div class="career-type">ENGINEERING • REMOTE / ISTANBUL</div>
+              <h3 class="career-title">Lead Vibecoder &amp; AI Architect</h3>
+              <p class="career-desc">Build autonomous agent workflows, orchestrate LLM/diffusion pipelines, and ship native iOS apps with extreme leverage.</p>
+            </div>
+            <a href="#contact" class="btn btn-glass btn-sm open-modal-btn">Apply Now →</a>
+          </div>
+
+          <div class="career-card">
+            <div>
+              <div class="career-type">GROWTH • GLOBAL REMOTE</div>
+              <h3 class="career-title">Viral Product &amp; ASO Growth Hacker</h3>
+              <p class="career-desc">Own user acquisition, viral loop design on TikTok/Shorts, App Store optimization, and algorithmic monetization.</p>
+            </div>
+            <a href="#contact" class="btn btn-glass btn-sm open-modal-btn">Apply Now →</a>
+          </div>
+
+          <div class="career-card">
+            <div>
+              <div class="career-type">DESIGN • REMOTE / HYBRID</div>
+              <h3 class="career-title">AI Product Designer &amp; Motion Artist</h3>
+              <p class="career-desc">Design slick micro-interactions, futuristic spatial UIs, and high-converting app onboarding experiences.</p>
+            </div>
+            <a href="#contact" class="btn btn-glass btn-sm open-modal-btn">Apply Now →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <img src="assets/logo.svg" alt="VibeLabs Logo" class="brand-logo">
+            Vibe<span>Labs</span>
+          </a>
+          <p>
+            An AI app studio building category leaders at the speed of thought. Powered by vibecoding.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">VibeMotion AI</a></li>
+            <li><a href="#products">PromptPilot Pro</a></li>
+            <li><a href="#products">EchoVerse AI</a></li>
+            <li><a href="#products">AuraCam Vision</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="#engine">The Engine</a></li>
+            <li><a href="#impact">Manifesto</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact" class="open-modal-btn">Pitch Idea</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://x.com" target="_blank" rel="noopener">X / Twitter</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:hello@vibelabs.studio">hello@vibelabs.studio</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 VibeLabs Studio Inc. All rights reserved.</div>
+        <div class="mono" style="font-size: 0.8rem; color: var(--accent-cyan);">// VIBE. BUILD. SCALE.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contact & Pitch Modal -->
+  <div id="contact-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button type="button" id="modal-close-btn" class="modal-close">&times;</button>
+      <div class="badge">Direct Transmission</div>
+      <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Pitch an App or Join the Vibe</h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 24px;">
+        Have a wild AI app concept, or want to join our core studio squad? Send us your vibe.
+      </p>
+
+      <div id="modal-success-msg" style="display: none; padding: 20px; background: rgba(0, 245, 160, 0.15); border: 1px solid var(--accent-cyan); border-radius: 12px; color: #fff; text-align: center;">
+        <h4 style="color: var(--accent-cyan); margin-bottom: 6px;">Transmission Received! 🚀</h4>
+        <p style="font-size: 0.85rem;">Our studio team will review your vibe and reach back out in less than 2 hours.</p>
+      </div>
+
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="contact-name">Your Name / Handle</label>
+          <input type="text" id="contact-name" class="form-control" placeholder="e.g. Alex Rivera (@alex_vibe)" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Email or Telegram</label>
+          <input type="text" id="contact-email" class="form-control" placeholder="alex@domain.com or @alex" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-interest">Interest</label>
+          <select id="contact-interest" class="form-control">
+            <option>Pitch an AI App Concept to VibeLabs</option>
+            <option>Apply for a Role (Vibecoder / Growth / Design)</option>
+            <option>Investor / Studio Partnership</option>
+            <option>Other Collaboration</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">The Vibe / Pitch</label>
+          <textarea id="contact-message" class="form-control" rows="3" placeholder="Tell us about what you want to build or your superpowers..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Transmit to Studio ⚡</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/canvas.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
